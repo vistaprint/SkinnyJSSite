@@ -1,6 +1,5 @@
-
-
-# skinny.js website
+skinny.js website
+===========================================
 
 This website is built using Jekyll, and produces all static content. It is hosted at http://vistaprint.github.io/SkinnyJS.
 
