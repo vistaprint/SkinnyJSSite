@@ -6,12 +6,14 @@ function renameFn(extOld, extNew) {
     };
 }
 
+var SKINNY_PATH = "../skinny/";
+
 module.exports = function (grunt) {
     var config = {
         pkg: grunt.file.readJSON("package.json"),
         docco: {
             javascript: {
-                src: ["js/**/*.js"],
+                src: [SKINNY_PATH + "js/**/*.js"],
                 dest: "./site/_site/docco/"
             }
         },
@@ -23,46 +25,15 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            distJs: {
+            dist: {
                 files: [{
                     expand: true,
-                    cwd: "./js/",
-                    src: ["**/*.js", "!*modalDialog*"],
-                    dest: "dist/"
-                }]
-            },
-            distCss: {
-                files: [{
-                    expand: true,
-                    src: ["./css/jquery.modalDialog.skins.less"],
-                    dest: "dist/"
-                }]
-            },
-            distOther: {
-                files: [{
-                    expand: true,
-                    src: ["./images/**"],
-                    dest: "dist/"
-                }, {
-                    expand: true,
-                    cwd: "./js/",
-                    src: ["./postmessage.htm"],
-                    dest: "dist/"
-                }, {
-                    expand: true,
-                    cwd: "./dependencies/",
-                    src: ["./*.js"],
-                    dest: "dist/dependencies/"
-                }]
-            },
-            distSite: {
-                files: [{
-                    expand: true,
-                    cwd: "./dist",
+                    cwd: SKINNY_PATH + "dist/",
                     src: ["**"],
                     dest: "./site/_site/dist/"
                 }, {
                     expand: true,
+                    cwd: SKINNY_PATH,
                     flatten: true,
                     src: ["LICENSE"],
                     processFile: true,
@@ -76,23 +47,12 @@ module.exports = function (grunt) {
                     src: ["**"],
                     dest: "./site/_site/docco"
                 }]
-            },
-            deploy: {
-                files: [{
-                    expand: true,
-                    cwd: "./site/_site/",
-                    flatten: false,
-                    src: ["**"],
-                    dest: "./.git/docs-temp/"
-                }]
             }
         },
         clean: {
             options: {
                 force: true
             },
-            build: ["./dist"],
-            deploy: ["./.git/docs-temp"],
             docs: ["./site/_site"]
         },
         jekyll: {
@@ -113,7 +73,7 @@ module.exports = function (grunt) {
                     // includes files in path
                     expand: true,
                     src: ["**"],
-                    cwd: "./dist",
+                    cwd: SKINNY_PATH + "dist",
                     dest: "",
                     filter: "isFile"
                 }]
@@ -165,13 +125,11 @@ module.exports = function (grunt) {
 
     grunt.registerTask("travis", "default");
 
-    grunt.registerTask("default", ["verify", "build"]);
-
-    grunt.registerTask("copyDist", ["copy:distJs", "copy:distCss", "copy:distOther"]);
+    grunt.registerTask("default", ["site"]);
 
     grunt.registerTask("docs", ["mkdir:docco", "docco", "docco-add-links", "copy:doccoFix"]);
 
-    grunt.registerTask("site", ["default", "compress", "sitePages", "docs", "copy:deploy"]);
+    grunt.registerTask("site", ["compress", "sitePages", "docs"]);
 
-    grunt.registerTask("sitePages", ["jekyll", "string-replace:site", "copy:distSite"]);
+    grunt.registerTask("sitePages", ["jekyll", "string-replace:site", "copy:dist"]);
 };
