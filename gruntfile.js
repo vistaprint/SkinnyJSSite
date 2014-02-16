@@ -128,8 +128,6 @@ module.exports = function (grunt) {
     // Custom tasks
     grunt.loadTasks("./site/_tasks");
 
-    grunt.registerTask("travis", "default");
-
     grunt.registerTask("default", ["verifypath", "compress", "sitePages", "docs"]);
 
     grunt.registerTask("docs", ["mkdir:docco", "docco", "docco-add-links", "copy:doccoFix"]);
