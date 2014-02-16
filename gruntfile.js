@@ -1,19 +1,11 @@
 /* globals module */
 
-function renameFn(extOld, extNew) {
-    return function (dest, path) {
-        return dest + "/" + path.replace(extOld, extNew);
-    };
-}
-
-var SKINNY_PATH = "../skinny/";
-
 module.exports = function (grunt) {
     var config = {
         pkg: grunt.file.readJSON("package.json"),
         docco: {
             javascript: {
-                src: [SKINNY_PATH + "js/**/*.js"],
+                src: ["<%= grunt.option('src') %>js/**/*.js"],
                 dest: "./site/_site/docco/"
             }
         },
@@ -28,12 +20,12 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: SKINNY_PATH + "dist/",
+                    cwd: "<%= grunt.option('src') %>dist/",
                     src: ["**"],
                     dest: "./site/_site/dist/"
                 }, {
                     expand: true,
-                    cwd: SKINNY_PATH,
+                    cwd: "<%= grunt.option('src') %>",
                     flatten: true,
                     src: ["LICENSE"],
                     processFile: true,
@@ -53,7 +45,8 @@ module.exports = function (grunt) {
             options: {
                 force: true
             },
-            docs: ["./site/_site"]
+            docs: ["./site/_site"],
+            dist: ["./dist"]
         },
         jekyll: {
             docs: {
@@ -73,7 +66,7 @@ module.exports = function (grunt) {
                     // includes files in path
                     expand: true,
                     src: ["**"],
-                    cwd: SKINNY_PATH + "dist",
+                    cwd: "<%= grunt.option('src') %>dist",
                     dest: "",
                     filter: "isFile"
                 }]
@@ -101,6 +94,12 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig(config);
 
+    if (!grunt.option("src")) {
+        grunt.option("src", "../skinny/");        
+    } else if (grunt.option("src")[grunt.option("src").length - 1] != "/") {
+        grunt.option("src", grunt.option("src") + "/");
+    }
+
     // NPM tasks
     grunt.loadNpmTasks("grunt-contrib-copy");
     grunt.loadNpmTasks("grunt-contrib-concat");
@@ -120,16 +119,20 @@ module.exports = function (grunt) {
         grunt.task.run("connect");
     });
 
+    grunt.registerTask("verifypath", function() {
+        if (!grunt.file.exists(grunt.option("src"))) {
+            throw new Error("The src path '" + grunt.option("src") + "' could not be found.")
+        }
+    })
+
     // Custom tasks
     grunt.loadTasks("./site/_tasks");
 
     grunt.registerTask("travis", "default");
 
-    grunt.registerTask("default", ["site"]);
+    grunt.registerTask("default", ["verifypath", "compress", "sitePages", "docs"]);
 
     grunt.registerTask("docs", ["mkdir:docco", "docco", "docco-add-links", "copy:doccoFix"]);
-
-    grunt.registerTask("site", ["compress", "sitePages", "docs"]);
 
     grunt.registerTask("sitePages", ["jekyll", "string-replace:site", "copy:dist"]);
 };
