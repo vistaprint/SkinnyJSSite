@@ -316,7 +316,7 @@ No modal dialog specific scripts need to be included in the AJAX dialog content.
 
 Any scripts included in the content will get loaded/executed dynamically, after the DOM elements have been loaded. Script tags that refer to scripts which are are already loaded in the window will be ignored (not loaded/executed a second time), but inline script snippets will be executed.
 
-**Note:** This is a feature of the skinny.js [jquery.partialLoad plugin](js/jquery.partialLoad.html), and can be used independently of modal dialogs.
+**Note:** This is a feature of the skinny.js [jquery.partialLoad plugin](jquery.partialLoad.html), and can be used independently of modal dialogs.
 
 ### IFrame dialogs
 
@@ -326,7 +326,7 @@ IFrame dialogs contain an embedded IFrame that shows a self-contained webpage. T
 * HTML, scripts, and CSS are completely isolated from the parent window.
 * They can load content cross-domain.
 * You can use the exact same API from the content window as in the host window. This is implemented using a proxy which
-communicates with the host window via the skinny.js [jquery.postMessage plugin](js/jquery.postMessage.html)
+communicates with the host window via the skinny.js [jquery.postMessage plugin](jquery.postMessage.html)
 
 To create an IFrame dialog, use the following syntax:
 
