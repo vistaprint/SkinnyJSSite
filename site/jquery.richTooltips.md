@@ -5,7 +5,7 @@ title: jQuery.richTooltips
 
 ## jQuery.richTooltips
 
-jQuery.richTooltips is simple responsive tooltip replacement for the classic desktop tooltip approach. It is mobile compatible and designed to help in cases where more information may be needed but there isn't a better way to reveal it.
+jQuery.richTooltips is a tooltip replacement which, unlike traditional tooltips, is designed to work on both desktop and touch/mobile devices. 
 
 ### Usage
 
