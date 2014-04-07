@@ -27,7 +27,7 @@ Overlays can be created with a simple markup-based syntax, or, if you need more 
 
 ### Adding jQuery.tutorialOverlay to your site
 
-Using the (skinny.js Download Builder)[http://vistaprint.github.io/SkinnyJS/download-builder.html], create a custom build which includes jquery.tutorialOverlay, along with any other skinny.js libraries you want. Include the following CSS and JavaScript files:
+Using the [skinny.js Download Builder](download-builder.html), create a custom build which includes jquery.tutorialOverlay, along with any other skinny.js libraries you want. Include the following CSS and JavaScript files:
 
 {% highlight html %}
 

@@ -61,7 +61,7 @@ Dialogs publish [events](#events) that can be used to extend their functionality
 
 ### Adding jQuery.modalDialog to your site
 
-Using the (skinny.js Download Builder)[http://vistaprint.github.io/SkinnyJS/download-builder.html], create a custom build which includes jquery.modalDialog, along with any other skinny.js libraries you want. Include the following CSS and JavaScript files:
+Using the [skinny.js Download Builder](download-builder.html), create a custom build which includes jquery.modalDialog, along with any other skinny.js libraries you want. Include the following CSS and JavaScript files:
 
 {% highlight html %}
 
