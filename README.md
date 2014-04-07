@@ -44,8 +44,18 @@ Note: Jekyll uses Pygments for syntax coloring.  Pygments requires Python and Ru
  * Mac: ```sudo gem install jekyll```
  * _If you need to uninstall pygments 5.2 and install 5.0:_
  * *http://stackoverflow.com/questions/17364028/jekyll-on-windows-pygments-not-working*
- * ```gem uninstall pygments.rb --version "=0.5.2"```
- * ```gem install pygments.rb --version "=0.5.0"```
+
+```
+gem uninstall pygments.rb --version "=0.5.2"
+gem install pygments.rb --version "=0.5.0"
+```
+
+ * If Jekyll errors out on windows with bad paths, its probably this: http://stackoverflow.com/questions/21164557/jekyll-serve-error-invalid-argument-issue
+
+```
+gem uninstall jekyll
+gem install jekyll --version "=1.4.2"
+```
 
 * Install node:
  * http://nodejs.org/download/
