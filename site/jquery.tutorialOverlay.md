@@ -1,6 +1,6 @@
 ---
 layout: main
-title: jQuery.tutorialOverlay
+title: jquery.tutorialOverlay
 ---
 
 # Tutorial overlay

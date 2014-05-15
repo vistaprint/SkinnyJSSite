@@ -1,6 +1,6 @@
 ---
 layout: main
-title: jQuery.richTooltips
+title: jquery.richTooltips
 ---
 
 ## jQuery.richTooltips

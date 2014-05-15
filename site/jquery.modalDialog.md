@@ -1,6 +1,6 @@
 ---
 layout: main
-title: jQuery.modalDialog
+title: jquery.modalDialog
 ---
 
 # Modal dialogs
