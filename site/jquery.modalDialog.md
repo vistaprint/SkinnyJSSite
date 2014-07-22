@@ -126,6 +126,7 @@ exactly to the [Settings](#settings) you can pass to the modalDialog programmati
 * **data-dialog-destroyOnClose**: If true, the dialog DOM will be destroyed and all events removed when the dialog closes. Defaults to ''false''.   
 * **data-dialog-skin**: The name of the skin to use for the dialog. Defaults to "primary".   
 * **data-dialog-enablehistory**: If set to false, [history management](#managing_history_browser_backforward_buttons) will be disabled for this dialog, even if enabled globally. Defaults to ''true''. 
+* **data-dialog-url**: If specified, this URL (or selector) will be used instead of the one specified in the href attribute. This is useful for progressive enhancement, where you would prefer to send non-javascript supporting browsers (or crawlers) to a different URL.
 * **data-dialog-zindex**: Can be used to set the z-index for the dialog. Don't use this unless you need to participate in a pre-existing z-index arms race. Defaults to 10000.
 
 {% highlight html %}
