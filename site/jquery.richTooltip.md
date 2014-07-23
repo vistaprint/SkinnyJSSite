@@ -1,11 +1,11 @@
 ---
 layout: main
-title: jquery.richTooltips
+title: jquery.richTooltip
 ---
 
-## jQuery.richTooltips
+## jQuery.richTooltip
 
-jQuery.richTooltips is a tooltip replacement which, unlike traditional tooltips, is designed to work on both desktop and touch/mobile devices. 
+jQuery.richTooltip is a tooltip replacement which, unlike traditional tooltips, is designed to work on both desktop and touch/mobile devices. 
 
 ### Usage
 
