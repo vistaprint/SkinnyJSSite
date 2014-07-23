@@ -1,6 +1,6 @@
 ---
 layout: main
-title: jQuery.pointerEvents
+title: jquery.pointerEvents
 ---
 
 ## jQuery.pointerEvents

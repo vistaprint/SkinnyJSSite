@@ -1,6 +1,6 @@
 ---
 layout: main
-title: jQuery.pointerGestures
+title: jquery.pointerGestures
 ---
 
 ## jQuery.pointerGestures

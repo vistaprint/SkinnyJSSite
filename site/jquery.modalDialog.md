@@ -1,6 +1,6 @@
 ---
 layout: main
-title: jQuery.modalDialog
+title: jquery.modalDialog
 ---
 
 # Modal dialogs
@@ -61,7 +61,7 @@ Dialogs publish [events](#events) that can be used to extend their functionality
 
 ### Adding jQuery.modalDialog to your site
 
-Using the (skinny.js Download Builder)[http://vistaprint.github.io/SkinnyJS/download-builder.html], create a custom build which includes jquery.modalDialog, along with any other skinny.js libraries you want. Include the following CSS and JavaScript files:
+Using the [skinny.js Download Builder](download-builder.html), create a custom build which includes jquery.modalDialog, along with any other skinny.js libraries you want. Include the following CSS and JavaScript files:
 
 {% highlight html %}
 
@@ -126,6 +126,7 @@ exactly to the [Settings](#settings) you can pass to the modalDialog programmati
 * **data-dialog-destroyOnClose**: If true, the dialog DOM will be destroyed and all events removed when the dialog closes. Defaults to ''false''.   
 * **data-dialog-skin**: The name of the skin to use for the dialog. Defaults to "primary".   
 * **data-dialog-enablehistory**: If set to false, [history management](#managing_history_browser_backforward_buttons) will be disabled for this dialog, even if enabled globally. Defaults to ''true''. 
+* **data-dialog-url**: If specified, this URL (or selector) will be used instead of the one specified in the href attribute. This is useful for progressive enhancement, where you would prefer to send non-javascript supporting browsers (or crawlers) to a different URL.
 * **data-dialog-zindex**: Can be used to set the z-index for the dialog. Don't use this unless you need to participate in a pre-existing z-index arms race. Defaults to 10000.
 
 {% highlight html %}
@@ -316,7 +317,7 @@ No modal dialog specific scripts need to be included in the AJAX dialog content.
 
 Any scripts included in the content will get loaded/executed dynamically, after the DOM elements have been loaded. Script tags that refer to scripts which are are already loaded in the window will be ignored (not loaded/executed a second time), but inline script snippets will be executed.
 
-**Note:** This is a feature of the skinny.js [jquery.partialLoad plugin](js/jquery.partialLoad.html), and can be used independently of modal dialogs.
+**Note:** This is a feature of the skinny.js [jquery.partialLoad plugin](jquery.partialLoad.html), and can be used independently of modal dialogs.
 
 ### IFrame dialogs
 
@@ -326,7 +327,7 @@ IFrame dialogs contain an embedded IFrame that shows a self-contained webpage. T
 * HTML, scripts, and CSS are completely isolated from the parent window.
 * They can load content cross-domain.
 * You can use the exact same API from the content window as in the host window. This is implemented using a proxy which
-communicates with the host window via the skinny.js [jquery.postMessage plugin](js/jquery.postMessage.html)
+communicates with the host window via the skinny.js [jquery.postMessage plugin](jquery.postMessage.html)
 
 To create an IFrame dialog, use the following syntax:
 
