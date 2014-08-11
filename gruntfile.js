@@ -1,12 +1,14 @@
 /* globals module */
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
     var config = {
         pkg: grunt.file.readJSON("package.json"),
         docco: {
             javascript: {
                 src: ["<%= grunt.option('src') %>js/**/*.js"],
-                dest: "./site/_site/docco/"
+                options: {
+                    output: "./site/_site/docco/"
+                }
             }
         },
         mkdir: {
@@ -95,7 +97,7 @@ module.exports = function (grunt) {
     grunt.initConfig(config);
 
     if (!grunt.option("src")) {
-        grunt.option("src", "../skinny/");        
+        grunt.option("src", "../skinny/");
     } else if (grunt.option("src")[grunt.option("src").length - 1] != "/") {
         grunt.option("src", grunt.option("src") + "/");
     }
@@ -112,7 +114,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-jekyll");
     grunt.loadNpmTasks("grunt-mkdir");
 
-    grunt.registerTask("connect-keepalive", function () {
+    grunt.registerTask("connect-keepalive", function() {
         var config = grunt.config.get("connect");
         config.server.options.keepalive = true;
         grunt.config.set("connect", config);
