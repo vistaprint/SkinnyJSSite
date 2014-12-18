@@ -1,6 +1,10 @@
 $sitepath=pwd
 $contentpath="../skinny"
 
+# Point to Ruby 2. 
+# TODO: Find a way to make this portable.
+$env:PATH = "C:\Ruby200-x64\bin;$($env:PATH)"
+
 if ($LASTEXITCODE -ne  0)
 {
     exit
