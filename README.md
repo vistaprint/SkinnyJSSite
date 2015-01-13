@@ -5,16 +5,21 @@ This website is built using Jekyll, and produces all static content. It is hoste
 
 Documentation for individual skinny.js libraries are in markdown, in /site/*.md.
 
+## Get skinny.js
+* Clone a working directory for [skinny.js](http://vistaprint.github.io/SkinnyJS)
+* Ideally, place it next to the working directory for this repository
+
 ## Building the site
 To build the site:
 * Make edits
 * Run ```grunt```
-* Test the site in /site/_site
+* Test the site in site/_site
 
 ## Deploying the site
-To deploy:
-* On Mac/*nix: ./publish-site.sh
-* On Windows: ./publish-site.ps1
+To deploy, use the platform specific deployment script, and pass the path to the skinny.js repo:
+
+* On Mac/*nix: ./publish-site.sh ../SkinnyJS
+* On Windows: ./publish-site.ps1 ../SkinnyJS
 
 ## Installation of dependencies
 
