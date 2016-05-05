@@ -105,6 +105,18 @@ Set via ``pos`` or ``data-tooltip-pos``. Acceptable values are: north, east, sou
 
 Set via the ``arrowStyle`` or ``data-tooltip-arrow-style``. Known values are 'outset' or 'inset', by default the value is 'outset'. This styling is used when calculating the optimized position for a tooltip. When the value is outset, the arrow is known to be outside the tooltip's bounding box and therefore increases the positioning distance from the tooltip context. When the styling is inset, it is assumed the arrow is overlapping the tooltip.
 
+##### Click behavior
+
+The tooltip is designed to be fully responsive and to function on both touch- and mouse-driven devices. It supports two different behaviors:
+
+- toggle on tap - the default behavior, which is to show the tooltip when the element is tapped (click or touch), and to hide it when there is a tap (click or touch) anywhere on the page.
+- toggle on hover state (for mice), toggle on tap (for touch) - on desktop, the tooltip will be shown when the mouse hovers over the element, and will hide when the mouse is no longer hovering over either the element or the tooltip. However, on touch devices, the tooltip will be toggled (show/hide) each time the element is tapped.
+
+To set the "hover" behavior:
+
+- declaratively - use the attribute data-tooltip-action="hover" in the div for the element
+- programmatically - use the argument "action: 'hover'" when invoking the richTooltip() function
+
 ##### Opt-out functionality
 
 ###### Don't close on window resize
