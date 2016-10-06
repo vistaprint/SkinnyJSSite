@@ -227,10 +227,10 @@ Or, you can get the modal dialog object from the jQuery idiomatic syntax:
 // Creates and opens the dialog
 $(".color-dialog").modalDialog();
 
-// Closes the dialog
+// Now you have a reference to the dialog
 var dialog = $(".color-dialog").modalDialogInstance();
 
-// Now you have a reference to the dialog
+// Closes the dialog
 dialog.close();
 {% endhighlight %}
 
