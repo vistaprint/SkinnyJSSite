@@ -5,6 +5,8 @@ title: jquery.partialLoad
 
 ## jQuery.partialLoad
 
+** DEPRECATED. This uses jQuery's $.buildFragment(), which is not exposed in jQuery 2+, so it only works in jQuery 1.X. **
+
 Similar to $.load(), though this will execute scripts on the target page more intelligently.
 
 If a target selector is passed, it will load only the target DOM fragment into the current DOM element.
